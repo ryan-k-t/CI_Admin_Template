@@ -17,6 +17,6 @@ $this->view('_blocks/header');
 	<? endif; ?>
 </div>
 
-<script src="/assets/js/wedu/cms_module.js"></script>
+<script src="/assets/js/core/cms_module.js"></script>
 
 <? $this->view('_blocks/footer'); ?>

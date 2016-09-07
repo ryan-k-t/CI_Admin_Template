@@ -54,7 +54,7 @@
 		<!-- Sortable css -->
 		<link rel="stylesheet" type="text/css" href="/assets/css/external/sortable/sortable-theme-light.css">
 
-		<!-- wedu css -->
+		<!-- core css -->
 		<link rel="stylesheet" type="text/css" href="/assets/css/stylesheets/screen.css">
 
 	</head>

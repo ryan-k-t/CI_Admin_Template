@@ -205,7 +205,7 @@ class Form_builder
 		$array_count = count($parameters['options']);
 
 		$output .= "
-		<script src='/assets/js/wedu/multi_date.js'></script>
+		<script src='/assets/js/core/multi_date.js'></script>
 		<div class='multi-date-group field'>";
 		if($parameters['label'])
 		{

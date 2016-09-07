@@ -1,0 +1,81 @@
+#available_plans, #payment_plans, #plans_information{
+
+	h3{
+
+	}
+	section.plan{
+		background-color:$form_fields;
+		padding-top:0px;
+		.plan-parent{
+			display: block;
+			background-color:$light_blue;
+			padding:10px;
+			input:checked + label{
+				span{
+					span{
+						background-color:#000;
+					}
+				}
+			}
+			
+			label{
+				color:#fff;
+				span{
+					background-color:#fff;
+
+				}
+			}
+			.field {
+				margin-bottom: 0;
+			}
+		}
+		.child-plans{
+			padding:10px;
+			.child-plan{
+				label{
+					margin-bottom: 0;
+					span{
+						background-color:#fff;
+					}
+				}
+				input{
+
+				}
+			}
+		}
+
+		.payment-options{
+			padding:10px 10px 0 10px;
+		}
+	}
+}
+
+#payment_plans{
+	
+	.payment-plan{
+		&.active{
+			.payment-options{
+				height:auto;
+			}
+		}
+		.payment-options{
+			height: 0px;
+			overflow:hidden;
+			@include transition-property(height);
+  			@include transition-duration(200ms);
+  			@include transition-timing-function(ease-in-ease-out);
+		}
+	}
+	input{
+		background-color:#fff;
+	}
+	.date{
+		.input-group-addon {
+			background-color:#fff;
+		}
+	}
+	.markup-fee{
+		padding:10px;
+	}
+}
+

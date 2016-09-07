@@ -1,0 +1,79 @@
+#upload-status {
+	border: 1px solid $form_fields;
+	background-color: $gray;
+	min-height: 400px;
+	overflow: scroll;
+	position: relative;
+
+	span.initialized {
+		font-style: italic;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include translate(-50%, -50%);
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+
+		th, td {
+			padding: .25rem;
+			color: $text_color;
+			border-bottom: 1px solid $gray;
+		}
+		th { 
+			text-align: center;
+			background-color: $form_fields;
+		}
+		tbody tr:nth-child(even) td {
+			background-color: $form_fields;
+		}
+		td {
+			@include transition(all .2s ease-in-out);
+		}
+		tbody tr:hover td {
+			background-color: $light_blue;
+			color: white;
+		}
+	}
+}
+
+#upload-results {
+	div.form {
+		margin-top: 2rem;
+	}
+	table {
+		width: 100%;
+		border-collapse: collapse;
+
+		th, td {
+			padding: .25rem;
+			color: $text_color;
+			border-bottom: 1px solid $gray;
+		}
+		th { 
+			text-align: center;
+			border-bottom: 1px solid $form_fields;
+		}
+		tbody {
+			tr:nth-child(even) td {
+				background-color: $gray;
+			}
+			td {
+				@include transition(all .2s ease-in-out);
+				&:first-child {
+					width: 3rem;
+					text-align: right;
+				}
+				&:nth-child(2){
+					text-align: center;
+				}
+			}
+			tr:hover td {
+				background-color: $light_blue;
+				color: white;
+			}
+		}
+	}
+}

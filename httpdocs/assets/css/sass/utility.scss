@@ -1,0 +1,177 @@
+/* COMPASS MIXINS */
+@import "compass";
+/**
+ * Boilerplate CSS/SASS stylesheet. Compiled via compass/sass to ./stylesheets/utility.css
+ * @import other/external CSS/SASS files that won't be changed by us here to keep requests/size low.
+ * Called via /application/templates/views/_blocks/html_top.php [css('stylesheets/utility')]
+ *
+ * NOTE: due to IE 9's issues with CSS file size and # of selectors we've split this out from the "base" style
+ * for a specific site
+ * max filesize: approx 288px -- max # of selectors = 4095
+ * see: http://stackoverflow.com/questions/11080560/does-ie9-have-a-file-size-limit-for-css
+ */
+
+/* Conventions: t = top, b = bottom, l = left, r = right */
+
+/* Margins & Padding - p{t,b,l,r}{x} / m{t,b,l,r}{x}  */
+@for $i from 0 through 9 { // 0 through 9
+	.pa#{$i} {padding: #{$i}px}		// Padding all sides
+	.ma#{$i} {margin: #{$i}px}		// Margin all sides
+	.pt#{$i} {padding-top: #{$i}px} .pb#{$i} {padding-bottom: #{$i}px} .pl#{$i} {padding-left: #{$i}px} .pr#{$i} {padding-right: #{$i}px}
+	.mt#{$i} {margin-top: #{$i}px} .mb#{$i} {margin-bottom: #{$i}px} .ml#{$i} {margin-left: #{$i}px} .mr#{$i} {margin-right: #{$i}px}
+}
+$i:10;
+@while $i <= 100 {	// 10 through 100, stopping every 5px
+	.pa#{$i} {padding: #{$i}px}		// Padding all sides
+	.ma#{$i} {margin: #{$i}px}		// Margin all sides
+	.pt#{$i} {padding-top: #{$i}px} .pb#{$i} {padding-bottom: #{$i}px} .pl#{$i} {padding-left: #{$i}px} .pr#{$i} {padding-right: #{$i}px}
+	.mt#{$i} {margin-top: #{$i}px} .mb#{$i} {margin-bottom: #{$i}px} .ml#{$i} {margin-left: #{$i}px} .mr#{$i} {margin-right: #{$i}px}
+	$i: $i + 5;
+}
+
+/* Negative Margin - nm{t,b,l,r}{x} */
+@for $i from 1 through 9 { // 1 through 9
+	.nma#{$i} {margin: -#{$i}px}	// Margin all sides
+	.nmt#{$i} {margin-top: -#{$i}px} .nmb#{$i} {margin-bottom: -#{$i}px} .nml#{$i} {margin-left: -#{$i}px} .nmr#{$i} {margin-right: -#{$i}px}
+}
+$i:10;
+@while $i <= 100 {	// 10 through 100, stopping every 5px
+	.nma#{$i} {margin: -#{$i}px}		// Margin all sides
+	.nmt#{$i} {margin-top: -#{$i}px} .nmb#{$i} {margin-bottom: -#{$i}px} .nml#{$i} {margin-left: -#{$i}px} .nmr#{$i} {margin-right: -#{$i}px}
+	$i: $i + 5;
+}
+
+/* Widths and Heights (%) */
+$i:1;
+$pct:"%";
+@while $i <= 100 {	// 1 through 100, stopping every 1%
+	.w#{$i} {width: #{$i}#{$pct}}
+	.h#{$i} {height: #{$i}#{$pct}}
+	$i: $i + 1;
+}
+
+/* Widths and Heights (px) */
+$i:5;
+@while $i <= 500 {	// 5 through 500, stopping every 5px
+	.wpx#{$i} {width: #{$i}px}
+	.hpx#{$i} {height: #{$i}px}
+	$i: $i + 5;
+}
+
+/* Widths and Heights: Auto */
+.wauto {width: auto;}
+.hauto {height: auto;}
+
+/* Opacity */
+$i:0;
+@while $i <= 100 {	// 0 through 100, stopping every 5%
+	.op#{$i} { @include opacity($i/100); }
+	$i: $i + 5;
+}
+
+/* Font Family */
+.ffm {font-family: monospace} .ffs {font-family: serif} .ffss {font-family: sans-serif}
+
+/* Font Size & Line Height */
+$i:10;
+@while $i <= 70 {	// 10 through 70, stopping every 2px
+	.px#{$i} {font-size: #{$i}px}
+	.lh#{$i} {line-height: #{$i}px}
+	$i: $i + 2;
+}
+
+/* Font Colors */
+.red			{ color: #f00 }
+.cyan			{ color: #58c }
+.green 			{ color: #0b0 }
+.orange 		{ color: #f60 }
+.yellow 		{ color: #ff0 }
+.white 			{ color: #fff }
+.black 			{ color: #000 }
+.blue			{ color: #33f }
+
+/* Text Style */
+.caseu {text-transform: uppercase} .casel {text-transform: lowercase} .casec {text-transform: capitalize}
+.bold {font-weight: bold}
+.ital {font-style: italic}
+.nowrap {white-space: nowrap}
+.cliptext {
+	white-space:nowrap;
+	width:100%;
+	overflow:hidden;
+}
+.elliptext {
+	white-space:nowrap;
+	width:100%;
+	overflow:hidden;
+	text-overflow: ellipsis
+}
+
+/* Text Alignment */
+.c {text-align: center} .r {text-align: right} .l {text-align: left}
+
+/* Floats & clear */
+.fn {float: none} .fr {float: right} .fl {float: left}
+.cn {clear: none} .cr {clear: right} .cl {clear: left} .cb {clear: both}
+
+/* Display, etc */
+.h {visibility: hidden; display: none} .dn {display: none} .db {display: block} .dib {@include inline-block(middle);} .vh {visibility: hidden}
+.blockcontainer { overflow: auto }
+.clearfix:after {
+    visibility: hidden; display: block; font-size: 0;
+    content: " "; clear: both; height: 0;
+}
+*:first-child+html .clearfix { zoom: 1; }
+.testborder {border: 1px solid #f00}
+.oh {overflow: hidden}
+.ohx {overflow-x: hidden}
+.ohy {overflow-y: hidden}
+.os {overflow: scroll}
+.osx {overflow-x: scroll}
+.osy {overflow-y: scroll}
+.oa {overflow: auto}
+.ellip {text-overflow: ellipsis}
+
+/* Position */
+.pabs {position:absolute}
+.prel {position:relative}
+.pfix {position:fixed}
+$i:0;
+@while $i <= 500 {	// 0 through 500, stopping every 10px
+	.psr#{$i} {right: #{$i}px}
+	.psl#{$i} {left: #{$i}px}
+	.pst#{$i} {top: #{$i}px}
+	.psb#{$i} {bottom: #{$i}px}
+	$i: $i + 10;
+}
+
+/* Outline Borders */
+.brda {border: 1px solid #bbb}
+.brdr {border-right: 1px solid #bbb}
+.brdl {border-left: 1px solid #bbb}
+.brdt {border-top: 1px solid #bbb}
+.brdb {border-bottom: 1px solid #bbb}
+.brdbb {box-sizing: border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box;}
+
+/* Override any borders */
+.nobrd {border: none !important}
+
+/* Fuel / CodeIgniter Errors */
+#error_php {
+	position: fixed !important;
+	z-index: 9999 !important;
+	top: 100px !important;
+	left: 50% !important;
+	margin-left: -250px !important;
+	/* background-color: rgba(255,255,255,0.85); */
+	@include background-image(linear-gradient(rgba(255,255,255,0.9), rgba(220,220,220,0.95)));
+	box-shadow: 0 0 40px 3px rgba(0,0,0,0.4);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-color: #bbb !important;
+	h1 {
+		color: #f30 !important;
+		margin-bottom: 1em !important;
+	}
+}

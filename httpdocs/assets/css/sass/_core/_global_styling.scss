@@ -1,0 +1,188 @@
+body, html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-width:780px;
+}
+h1, h1 a, .h1{
+	@extend .source_sans_bold;
+	font-size: 46px;
+	font-size: 2.875rem;
+	color: $text_color;
+}
+h2, h2 a, .h2{
+	@extend .source_sans_bold;
+	font-size: 27px;
+	font-size: 1.688rem;
+	color: $text_color;
+}
+h3, h3 a, .h3{
+	@extend .source_sans;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-size: 1rem;
+	color: $text_color;
+}
+h4, h4 a, .h4{
+	@extend .source_sans;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-size: 0.875rem;
+	color: $text_color;
+}
+h5, h5 a, .h5{
+	@extend .source_sans;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-size: 0.75rem;
+	color: $text_color;
+}
+h6, h6 a, .h6{
+	@extend .source_sans;
+	text-transform: uppercase;
+	font-size: 10px;
+	font-size: 0.625rem;
+	color: $text_color;
+}
+p, ul, li, ol, span, a, div{
+	@extend .source_sans;
+	font-size: 14px;
+	font-size: 0.875rem;
+	color: $text_color;
+	strong{
+		font-weight: $source_sans_bold_weight;
+	}
+	i{
+		font-style: italic;
+	}
+}
+hr{
+	display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; 
+}
+ul.non-bulleted {
+	list-style:none;
+	padding-left: 0;
+
+	li {
+		line-height: 1.5;
+	}
+}
+a{
+	color: $dark_blue;
+	&.back-link{
+		color: $green;
+		text-transform: uppercase;
+	    font-family: $source_sans;
+	    line-height: 1;
+	    display: inline-block;
+	    margin-bottom:5px;
+	}
+}
+
+.horizontal-gutter {
+	padding: $horizontal-gutter;
+}
+#container, #order_container {
+	padding: $horizontal-gutter;
+
+	> .alert {
+		@include transition(padding .25s ease-in-out, margin .25s ease-in-out, height .25s ease-in-out);
+
+		&.inactive {
+			height: 0;
+			margin-bottom: 0;
+			padding: 0;
+		}
+	}
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.page-title {
+	text-transform: uppercase;
+	margin: 0 0 .75rem 0;
+	padding: 0 0 .5rem 0;
+	color: $dark_blue;
+	font-weight: $oswald-regular-weight;
+	font-family: $oswald;
+}
+
+.modal-dialog {
+	z-index: 1050;
+}
+.modal-header {
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+
+	&.bg-info, &.bg-success, &.bg-warning, &.bg-danger {
+		h4 {
+			&:before {
+				@extend .#{$fa-css-prefix};
+				margin-right: .25rem;
+			}
+		}
+	}
+	&.bg-info h4:before {
+		content: $fa-var-info-circle;
+	}
+	&.bg-danger h4:before {
+		content: $fa-var-times-circle;
+	}
+	&.bg-warning h4:before {
+		content: $fa-var-exclamation-triangle;
+	}
+	&.bg-success h4:before {
+		content: $fa-var-check-circle;
+	}
+}
+
+.form-section { 
+	margin-top: 2rem;
+	padding-top: 2rem;
+	border-top: 1px solid $form_fields;
+
+	> header > h4 {
+		margin-top: 0;
+	}
+}
+.sidebar-item {
+	&:not(:first-child)
+	{
+		@extend .form-section;
+	}
+	button, .btn {
+		font-size: .875rem;
+		line-height: 1.428571429;
+	}
+}
+.editor {
+	[class^="col-md-"],[class*=" col-md-"] {
+		section:not(:first-child){
+			@extend .form-section;
+		}
+	}
+}
+.editor,.sidebar-item {
+	h3 {
+		padding-bottom: 1em;
+		margin-bottom: 1em;
+		border-bottom: 1px solid darken($form_fields, 12.5%);
+	}
+}
+.note {
+	font-style: italic;
+	font-size: .875em;
+}

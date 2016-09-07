@@ -1,0 +1,48 @@
+/**
+ * Default CSS/SASS stylesheet for screen devices. Compiled via compass/sass to ./stylesheets/screen.css
+ * @import other/external CSS/SASS files here to keep requests/size low. Called via /application/templates/views/_blocks/html_top.php [css('stylesheets/screen')]
+ */
+
+
+
+@import "compass";						
+@import "_fonts";
+@import "_fontawesome/font-awesome";					
+@import "_mixins";
+@import "breakpoints"; 
+
+$gray: #f3f3f3;
+$form_fields : #e5e5e5;
+$text_color : #3b3b3b;
+$cyan: #11b9c3;
+$dark_blue: #1a3658;
+$light_blue: #4692ef;
+$green: #5ebc60;
+$slate_blue: #a7bbce;
+$backgound_color: #fff;
+
+
+
+$page-vertical-gutter: 24px;
+$horizontal-gutter: 20px;
+
+
+$icon-font-path: "/assets/fonts/bootstrap/";
+@import "bootstrap";
+
+@import "_core/_global_styling";
+@import "_core/_form_fields";
+@import "_core/_header";
+@import "_core/_footer";
+@import "_core/_dashboard";
+@import "_core/_comments";
+@import "_core/_import";
+@import "_core/_order";
+
+/**
+ * Pages
+ */
+@import "_core/_login";
+
+// The rest of your custom CSS/SASS can go below...
+

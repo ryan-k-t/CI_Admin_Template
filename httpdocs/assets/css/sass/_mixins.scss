@@ -1,0 +1,150 @@
+/*
+======================================================================
+MIXINS
+======================================================================
+
+
+
+
+========  wedü Standard ========
+
+--- absolute-position ---
+Takes in a Sass Map of the absolute position coordinates and returns the absolute position code
+Argument 1: Sass Map positioning coordinates (top/right/bottom/left)
+			Example: (top: 25px, left: 30px)
+*/
+@mixin absolute-position($pos: false){
+	position: absolute;
+	@if $pos {
+		@if ( map-get($pos, top) ) { top: map-get($pos, top); }
+		@if ( map-get($pos, right) ) { right: map-get($pos, right); }
+		@if ( map-get($pos, bottom) ) { bottom: map-get($pos, bottom); }
+		@if ( map-get($pos, left) ) { left: map-get($pos, left); }
+	}
+}
+
+/*
+--- tinted-bg ---
+Creates CSS for a tinted background image.
+Argument 1: CSS Url
+			Example: url(/path/to/img/here)
+Argument 2: Sass Map of tinting options (color and color's opacity)
+			Example: (color: red, opacity: 0.5)
+			Default: (color: black, opacity: 0.7)
+*/
+@mixin tinted-bg( $img: false, $tintOptions: (color: black, opacity: 0.7) ){
+	//-- no $img, no code!
+	@if $img {
+		$colorTint: rgba(map-get($tintOptions, color), map-get($tintOptions, opacity));
+		background: map-get($tintOptions, color);
+		background: $colorTint;
+		@include background( linear-gradient($colorTint, $colorTint),  url(#{$img}) );
+		background-size: cover;
+		background-position: center;
+	}
+}
+
+/*
+--- center-vertical ---
+Vertically align element to the center of its taller container. The taller container must have a defined height property.
+Original code and article found here: [http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/]
+*/
+@mixin center-vertical {
+  position: relative;
+  top: 50%;
+  @include translateY(-50%);
+}
+
+/*
+--- aspect-ratio ---
+Forces a content ratio for an element with a set percentage.
+Argument 1: CSS selector of child element that contains the content
+			Example: .content
+Argument 2: CSS width value (can be px, em, percentage, or vw)
+			Example: 33vw
+			Default: 100%
+Argument 3: Percentage value of Argument 2 to determin how tall it should be for your aspect ratio
+			Examples: 50% (2:1), 75% (4:3), 56.25% (16:9), 41.84% (2.39:1)
+			Default: 100% (1:1)
+*/
+@mixin aspect-ratio($contentSelector, $w: 100%, $h: 100%){
+	position: relative;
+	width: $w;
+	&:before {
+		content: "";
+		display: block;
+		padding-top: $h;
+	}
+	#{$contentSelector} {
+		@include absolute-position( (top:0,right:0,bottom:0,left:0) );
+	}
+}
+
+/*
+--- iconfont-reset ---
+Reset mixin to negate inherited styles that may not mix well when used with icon fonts
+*/
+@mixin iconfont-reset {
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*
+--- calc ---
+Creates a CSS3 calc() statement with browser prefixes
+Argument 1: CSS property to create
+			Example: padding-left
+Argument 2: CSS calc statement
+			Example: 100px + 2em
+Argument 3: Alternate value for dumb old browsers
+			Example: 120px (you can use SASS math in your function call)
+*/
+@mixin calc($property, $expression, $alt) {
+	#{$property}: $alt;
+	#{$property}: -moz-calc(#{$expression});
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+
+/*
+--- ellipsis ---
+Creates a text element of 'x' lines and adds ellipsis overflow; ... will appear nicely in webkit browsers - others will be truncated & use the :after pseudo selector to show '...'
+Argument 1: Font Size (must be in px)
+			Example: 14px
+Argument 2: Line Height (ratio)
+			Example: 1.4
+Argument 3: Number of lines to show
+			Example: 4
+*/
+@mixin ellipsis($font-size, $line-height, $lines) {
+	position: relative;
+	display: block;
+	display: -webkit-box;
+	height: $font-size*$line-height*$lines;
+	font-size: $font-size !important;
+	line-height: $line-height !important;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	&:after {
+		content: '...';
+		position: absolute;
+		top: $font-size*$line-height*($lines - 1);
+		right: 0;
+	}
+
+	@media (-webkit-min-device-pixel-ratio:0) {
+		-webkit-line-clamp: $lines;
+		-webkit-box-orient: vertical;
+	    &:after {
+	    	display:none;
+	    }
+	}
+}
+

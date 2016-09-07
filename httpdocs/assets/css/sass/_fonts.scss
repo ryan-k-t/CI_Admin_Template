@@ -1,0 +1,56 @@
+/*
+Add @font-face directives and typography miscellany here
+Font file resources specific to this site should be stored in /assets/fonts
+*/
+@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,700,700italic|Oswald:300,400,700);
+
+/* icomoon.io default. Dump the unzipped contents into /assets/fonts and uncomment
+@font-face {
+	font-family: 'icomoon';
+	src:url('/assets/fonts/icomoon/fonts/icomoon.eot?sslfa7');
+	src:url('/assets/fonts/icomoon/fonts/icomoon.eot?#iefixsslfa7') format('embedded-opentype'),
+		url('/assets/fonts/icomoon/fonts/icomoon.woff?sslfa7') format('woff'),
+		url('/assets/fonts/icomoon/fonts/icomoon.ttf?sslfa7') format('truetype'),
+		url('/assets/fonts/icomoon/fonts/icomoon.svg?sslfa7#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+*/
+
+$source_sans_regular_weight: 400;
+$source_sans_light_weight: 300;
+$source_sans_bold_weight: 700;
+$source_sans: 'Source Sans Pro', sans-serif;
+$oswald: 'Oswald', sans-serif;
+$oswald_regular_weight: 400;
+$oswald_light_weight: 300;
+$oswald_bold_weight: 700;
+
+.source_sans {
+	font-family: $source_sans;
+	font-weight: $source_sans_regular_weight;
+}
+.source_sans_bold {
+	@extend .source_sans;
+	font-weight: $source_sans_bold_weight;
+}
+.source_sans_light {
+	@extend .source_sans;
+	font-weight: $source_sans_light_weight;
+}
+.source_sans_italic {
+	@extend .source_sans;
+	font-style: italic;
+}
+.source_sans_bold_italic {
+	@extend .source_sans_bold;
+	font-style: italic;
+}
+.source_sans_light_italic {
+	@extend .source_sans_light;
+	font-style: italic;
+}
+.oswald {
+	font-weight: $oswald_regular_weight;
+	font-family: $oswald;
+}

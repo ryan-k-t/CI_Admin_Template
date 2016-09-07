@@ -1,0 +1,7 @@
+/**
+ * CSS styles required for the templateFUEL base template. You may need to replicate some of these to your screen.scss file,
+ * as this stylesheet should be disabled on production. Grab what you need and what you need only.
+ */
+
+@import "compass"; 		// Only so this will compile standalone w/o error
+@import "_mixins";		// Only so this will compile standalone w/o error

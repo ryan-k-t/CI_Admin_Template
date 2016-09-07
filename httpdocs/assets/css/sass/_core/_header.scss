@@ -1,0 +1,175 @@
+$main_nav_items : 7;
+
+#site-header {
+	background-color: $dark_blue;
+	color: white;
+	position: relative;
+	width: 100%;
+	min-height: 142px;
+	padding-top: $page-vertical-gutter;
+	z-index: 10;
+}
+
+#settings-link, #user-links {
+	position: absolute;
+	top: $page-vertical-gutter;
+	text-transform: uppercase;
+	font-size: .875rem;
+
+	a {
+		color: $green;
+		font-family: $source_sans;
+		font-weight: $source_sans_bold_weight;
+		line-height: 1;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		i {
+			color: inherit;
+			font-size: 1.25rem;
+			vertical-align: text-top;
+		}
+	}
+}
+#settings-link {
+	left: $horizontal-gutter;
+
+	a {
+		i {
+			@extend .fa-fw;
+		}
+
+		&:hover i {
+			@extend .fa-spin;
+		}
+	}
+}
+
+#user-links {
+	right: $horizontal-gutter;
+	font-family: $source_sans;
+	font-weight: $source_sans_regular_weight;
+
+	.strong {
+		font-weight: $source_sans_bold_weight;
+		color: inherit;
+	}
+
+	a  {
+
+		&:hover {
+			text-decoration: none;
+		}
+		
+		i {
+			padding-left: .5rem;
+		}
+	}
+
+	div {
+		padding-right: .5rem;
+		display: inline-block;
+		color: white;
+
+		&:last-child {
+			padding-right: 0;
+			padding-left: .5rem;
+		}
+	}
+}
+
+#header-logo {
+	position: absolute;
+	top: $page-vertical-gutter;
+	left: 50%;
+	@include translateX(-50%);
+	height: 68px;
+
+	img {
+		max-height: 100%;
+		width: 100%;
+	}
+}
+
+#site-nav {
+	position: absolute;
+	left: 0;
+	bottom: 10px;
+	width: 100%;
+	ul {
+		width: 100%;
+		display: table;
+		margin: 0;
+		padding: 0;
+
+		&.children{
+			display: none;
+			position:absolute;
+			left:0px;
+			background-color:$gray;
+			li{
+				width:100%;
+				display: block;
+				padding:0px;
+				color:$text_color;
+				position:relative;
+
+				
+				a{
+					display: block;
+					padding:10px;
+					color:$text_color;
+					&:hover{
+						background-color:$cyan;
+
+					}
+				}
+			}
+		}
+
+		li {
+			list-style: none;
+			display: table-cell;
+			text-align: center;
+			line-height: 1;	
+			color: white;
+			text-transform: uppercase;
+			cursor: default;
+			position:relative;
+			padding:5px 5px 0 5px;
+			width:calc(100% / #{$main_nav_items});
+			@extend .noselect;
+
+
+			&:hover, &:active{
+				font-weight: 700;
+
+				&.help{
+					a{
+						font-weight: 700;
+					}
+				}
+				&:not(.help) {
+					background-color:$gray;
+					color: $text_color;
+
+					.children{
+						display: block;
+					}
+				}
+			}
+			a {
+				color: white;
+				text-transform: uppercase;
+				padding: 0 $page-vertical-gutter * .5;
+				font-size: .875rem;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

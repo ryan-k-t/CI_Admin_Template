@@ -1,0 +1,25 @@
+
+
+#footer {
+	position: relative;
+	padding-top: $horizontal-gutter;
+}
+/** 
+ * Devinfo at the bottom of all the pages
+ */
+#devinfo{
+	margin-left: $horizontal-gutter;
+}
+
+.login {
+	#footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding-top: 0;
+	}
+
+	#devinfo {
+		left: $page-vertical-gutter * .5;
+	}
+}

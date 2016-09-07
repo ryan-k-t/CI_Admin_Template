@@ -1,0 +1,36 @@
+/**
+ * Login Page
+ */
+ body.login{
+ 	#body{
+ 		position: absolute;
+    	height: 100%;
+		width: 100%;
+		top:0px;
+		left:0px;
+ 	}
+	.login-wrapper{
+		position: relative;
+  		top: 40%;
+  		@include translateY(-40%);
+		text-align: center;
+		
+		img.logo{
+ 			margin:0 auto;
+ 			display: block;
+	 	}
+		.form-container {
+			text-align: left;
+			padding:16px;
+			background-color: $gray;
+			width: 50%;
+			max-width:500px;
+			margin: auto;
+
+		}
+		.message {
+			padding: 10px;
+			margin-top: 1em;
+		}
+	}
+}

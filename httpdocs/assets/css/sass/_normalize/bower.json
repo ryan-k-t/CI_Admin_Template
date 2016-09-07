@@ -1,0 +1,10 @@
+{
+  "name": "normalize.scss",
+  "version": "2.1.2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components"
+  ]
+}

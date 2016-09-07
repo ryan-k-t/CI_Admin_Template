@@ -1,0 +1,43 @@
+/**
+ * Open-ended media query - could really be anything
+ */
+@mixin respond-to($media) {
+    @media #{$media} {
+        @content;
+    }
+}
+
+/**
+ * Media query to respond by min or max with, defined in px
+ */
+@mixin respond-width($minmax, $size) {
+	@media (#{$minmax}-width: #{$size}px) {
+        @content;
+    }
+}
+
+/**
+ * Media query to respond between two defined px sizes
+ */
+@mixin respond-between($min, $max) {
+	@media (min-width: #{$min}px) and (max-width: #{$max}px) {
+        @content;
+    }
+}
+
+/**
+ * Workaround to detect IE in a media query - will only trigger true on IE
+ */
+@mixin ieonly(){
+	 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	 	 @content;
+	 }
+}
+
+// use min widths media querries with these variables
+// phone is anything less than tablet
+$tablet: 480px;
+$desktop : 980px;
+$large-desktop: 1200px;
+$non-retina: 'screen and (-webkit-max-device-pixel-ratio: 1)';
+$retina: 'screen and (-webkit-min-device-pixel-ratio: 2)';

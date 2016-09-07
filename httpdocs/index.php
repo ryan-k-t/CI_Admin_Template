@@ -54,8 +54,8 @@
  * NOTE: If you change these, also change the error_reporting() code below
  */
 $environments = array(
-	'development'	=> array('192.168.50.*', '*.staging.wedu.com'),		// This should be pretty standard & cover everything on dev-staging
-	'production'	=> array('eandrcleaners.com', 'eandrcleaners.test14.weduhosting.com', 'www.eandrcleaners.com') 										// Set this to the production (real) domain(s).
+	'development'	=> array(),		// This should be pretty standard & cover everything on dev-staging
+	'production'	=> array() 										// Set this to the production (real) domain(s).
 );
 foreach($environments as $env => $paths)
 {

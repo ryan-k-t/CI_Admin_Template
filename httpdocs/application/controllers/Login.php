@@ -235,7 +235,7 @@ class Login extends Base_Controller {
 		));
 		
 		$message = "This e-mail is being sent to you because you requested a password reset for your account on http".(is_secure() ? "s" : "")."://".$_SERVER['SERVER_NAME']."/.\n\nTo recover your password, visit: ".$reset_link;
-		$this->email->from($this->config->item('wedu_serverEmail'), $this->config->item('wedu_serverFrom'));
+		$this->email->from($this->config->item('misc_serverEmail'), $this->config->item('misc_serverFrom'));
 		$this->email->to($user->email);
 		$this->email->subject("Password Recovery");
 		$this->email->message($message);

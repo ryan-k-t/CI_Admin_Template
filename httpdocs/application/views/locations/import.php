@@ -58,9 +58,9 @@ $this->view('_blocks/header');
 
 </div>
 
-<script src="/assets/js/wedu/cms_module.js"></script>
-<script src="/assets/js/wedu/import.js"></script>
-<script src="/assets/js/wedu/location_import.js"></script>
+<script src="/assets/js/core/cms_module.js"></script>
+<script src="/assets/js/core/import.js"></script>
+<script src="/assets/js/core/location_import.js"></script>
 
 
 <? $this->view('_blocks/footer'); ?>	

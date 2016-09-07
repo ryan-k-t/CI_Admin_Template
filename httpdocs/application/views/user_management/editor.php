@@ -183,5 +183,5 @@ if (!isset($user_data)) {
 			</div>
 	</div> <!-- end .row -->
 </div><!-- end #container -->
-<script src="/assets/js/wedu/cms_module.js"></script>
+<script src="/assets/js/core/cms_module.js"></script>
 <? $this->view('_blocks/footer');
